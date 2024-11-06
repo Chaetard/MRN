@@ -88,6 +88,11 @@ $rows = $result->fetchAll();
                 </tbody>
             </table>
 
+                            <div class="col-8 bg-dark" style="color:white;">
+                                <h1>Marian</h1>
+                            </div>
+
+
         </div>
 
     </div>

@@ -7,5 +7,10 @@
 </head>
 <body>
     Landing Page
+        
+        
+        <?php
+phpinfo();
+?>
 </body>
 </html>

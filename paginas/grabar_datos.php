@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ciudad = $_POST['ciudad'];
     $cp = $_POST['codigoPostal'];
 
-    $stmt = $conn->prepare("SELECT COUNT(*) FROM Paqueteria WHERE id_empresa = ? OR LOWER(nombre) = LOWER(?)");
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM paqueteria WHERE id_empresa = ? OR LOWER(nombre) = LOWER(?)");
     $stmt->execute([$id_empresa, $nombre]);
     
     $existe = $stmt->fetchColumn();
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>document.getElementById('message').innerHTML = 'Error: Ya existe un registro con este ID de Empresa o Nombre de Empresa.'; document.getElementById('message').className = 'message error'; document.getElementById('message').style.display = 'block'; setTimeout(() => { document.getElementById('message').style.display = 'none'; }, 3000);</script>";
     } else {
         // Preparar la consulta SQL para inserción
-        $stmt = $conn->prepare("INSERT INTO Paqueteria (id_empresa, nombre, telefono, sitio_web, oficinas_c, email, direccion, ciudad, cp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO paqueteria (id_empresa, nombre, telefono, sitio_web, oficinas_c, email, direccion, ciudad, cp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         // Ejecutar la consulta con los valores
         if ($stmt->execute([$id_empresa, $nombre, $telefono, $sitioweb, $oficinas_c, $email, $direccion, $ciudad, $cp])) {

@@ -36,7 +36,7 @@ require_once "conexion.php";
         </div>
         <div class="col-6">
             <label for="sitioweb" class="">Sitio Web:</label>
-            <input type="url" id="sitioweb" name="sitioweb" class="form-control">
+            <input type="text" id="sitioweb" name="sitioweb" class="form-control">
         </div>
     </div>
 
@@ -48,7 +48,7 @@ require_once "conexion.php";
                 <option value="CDMX">CDMX</option>
                 <option value="JALISCO">JALISCO</option>
                 <option value="SONORA">SONORA</option>
-                <option value="NUEVO LEON">NUEVO LEON</option>
+                <option value="DURANGO">DURANGO</option>
                 <option value="PUEBLA">PUEBLA</option>
             </select>
         </div>

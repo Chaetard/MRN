@@ -21,15 +21,15 @@
 <body>
     <?php
 
-   $servername = "localhost";
-   $username = "root";
-   $password = "";
-   $basededatos = "prograweb";
+     $servername = "localhost";
+     $username = "root";
+     $password = "";
+     $basededatos = "prograweb";
 
     // $servername = "fdb1030.atspace.me";
-    // $username = "4548477_marianweb";
+    // $username = "4244598_santos";
     // $password = "hola123hola";
-    // $basededatos = "4548477_marianweb";
+    // $basededatos = "4244598_santos";
     
     // Crear conexion
     try {
@@ -38,10 +38,10 @@
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        "<div class='  bg-success centrar' aling=´center´>si me conecte </h1></div>";
+      //echo  "<div class='  bg-success centrar' aling=´center´>si me conecte </h1></div>";
     } catch (PDOException $e) {
 
-        "<div class='centrar bg-danger' style='font-size:30px;' >Conexion fallida: " . $e->getMessage() . "</h1></div>";
+      //echo  "<div class='centrar bg-danger' style='font-size:30px;' >Conexion fallida: " . $e->getMessage() . "</h1></div>";
     }
 
     ?>

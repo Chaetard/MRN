@@ -1,7 +1,7 @@
 <?php
 require_once "conexion.php";
 $id_empresa = $_POST["txt_id_empresa_oculto"];
-$nombre = strtoupper(trim($_POST["txt_nombre_empresa"]));
+$nombre = strtoupper(trim($_POST["txt_nombre_empresa_oculto"]));
 $telefono = (int) $_POST["txt_telefono_empresa"];
 $sitio_web = strtoupper(trim($_POST["txt_sitio_web"]));
 $oficinas_c = $_POST["txt_oficinas_c"];
@@ -66,7 +66,6 @@ $mensaje = "Factura Actualizada Correctamente ";
 				<div class="col-4"><b>Sitio web:</b></div>
 				<div class="col-8"><?php echo ($sitio_web); ?></div>
 			</div>
-
 			<div class="row">
 				<div class="col-4"><b>Oficinas Centrales:</b></div>
 				<div class="col-8"><?php echo ($oficinas_c); ?></div>

@@ -9,107 +9,93 @@ $email = strtoupper(trim($_POST["txt_email_empresa"]));
 $direccion = strtoupper(trim($_POST["txt_direccion_empresa"]));
 $ciudad = strtoupper(trim($_POST["txt_ciudad_empresa"]));
 $cp = (int) $_POST["txt_cp"];
-$sqlUPDATE = "UPDATE paqueteria  SET nombre = '$nombre',telefono  = $telefono, sitio_web = '$sitio_web', oficinas_c = '$oficinas_c', email = '$email', direccion = '$direccion', ciudad = '$ciudad', cp = '$cp'  WHERE id_empresa=$id_empresa";
+$sqlUPDATE = "UPDATE paqueteria SET nombre = '$nombre', telefono = $telefono, sitio_web = '$sitio_web', oficinas_c = '$oficinas_c', email = '$email', direccion = '$direccion', ciudad = '$ciudad', cp = '$cp' WHERE id_empresa = $id_empresa";
 $conn->exec($sqlUPDATE);
 $mensaje = "Factura Actualizada Correctamente ";
 ?>
+
 <!doctype html>
-<html>
+<html lang="es">
 
 <head>
-	<meta charset="utf-8">
-	<title>Actualización de departamentos desde PHP hacia MySQL</title>
-
-
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualización de Empresa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
+<div class="container mt-5">
+    <div class="row mb-3 text-center">
+        <div class="col-12">
+            <h2 class="display-4">Licenciatura en Tecnologías de la Información</h2>
+            <p>Programación web</p>
+			<p>Marian Ochoa Estrella</p>
+            <h3>Datos de la Empresa Actualizados Correctamente</h3>
+        </div>
+    </div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-4 mt-2">Licenciatura en Tecnologías de la Información</div>
-			<div class="col-4 mt-2">Programación web</div>
-			<div class="col-4 mt-2">Formulario para modificar departamentos en la base de datos desde una página web
-			</div>
-		</div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h4>Empresa Actualizada Satisfactoriamente</h4>
+                </div>
+                <div class="card-body">
+                    <fieldset>
+                        <div class="mb-3">
+                            <label><b>ID de la Empresa:</b></label>
+                            <p><?php echo ($id_empresa); ?></p>
+                        </div>
+                        <div class="mb-3">
+                            <label><b>Nombre de la Empresa:</b></label>
+                            <p><?php echo ($nombre); ?></p>
+                        </div>
+                        <div class="mb-3">
+                            <label><b>Teléfono:</b></label>
+                            <p><?php echo ($telefono); ?></p>
+                        </div>
+                        <div class="mb-3">
+                            <label><b>Sitio Web:</b></label>
+                            <p><?php echo ($sitio_web); ?></p>
+                        </div>
+                        <div class="mb-3">
+                            <label><b>Oficinas Centrales:</b></label>
+                            <p><?php echo ($oficinas_c); ?></p>
+                        </div>
+                        <div class="mb-3">
+                            <label><b>Email:</b></label>
+                            <p><?php echo ($email); ?></p>
+                        </div>
+                        <div class="mb-3">
+                            <label><b>Dirección:</b></label>
+                            <p><?php echo ($direccion); ?></p>
+                        </div>
+                        <div class="mb-3">
+                            <label><b>Ciudad:</b></label>
+                            <p><?php echo ($ciudad); ?></p>
+                        </div>
+                        <div class="mb-3">
+                            <label><b>Código Postal:</b></label>
+                            <p><?php echo ($cp); ?></p>
+                        </div>
+                    </fieldset>
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="reporte_editar_catalogo_marian.php" class="btn btn-info">Regresar al reporte paquetería</a>
+                        <a href="alta_tabla_marian.php" class="btn btn-warning">Registrar otra paquetería</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-		<div class="row">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
-			<div class="col-12 bg-success">
-
-				<h1>
-					<?php echo ($mensaje); ?>
-				</h1>
-			</div>
-
-		</div>
-		<div class="row mt-2 p-3 ">
-
-
-			<div class="row">
-				<div class="col-4"><b>Id de la Factura:</b></div>
-				<div class="col-8"><?php echo ($id_empresa); ?></div>
-			</div>
-
-			<div class="row">
-				<div class="col-4"><b>Nombre de la Empresa:</b></div>
-				<div class="col-8"><?php echo ($nombre); ?></div>
-			</div>
-
-			<div class="row">
-				<div class="col-4"><b>Telefono:</b></div>
-				<div class="col-8"><?php echo ($telefono); ?></div>
-			</div>
-
-			<div class="row">
-				<div class="col-4"><b>Sitio web:</b></div>
-				<div class="col-8"><?php echo ($sitio_web); ?></div>
-			</div>
-			<div class="row">
-				<div class="col-4"><b>Oficinas Centrales:</b></div>
-				<div class="col-8"><?php echo ($oficinas_c); ?></div>
-			</div>
-
-			<div class="row">
-				<div class="col-4"><b>Email:</b></div>
-				<div class="col-8"><?php echo ($email); ?></div>
-			</div>
-
-			<div class="row">
-				<div class="col-4"><b>Dirección:</b></div>
-				<div class="col-8"><?php echo ($direccion); ?></div>
-			</div>
-
-			<div class="row">
-				<div class="col-4"><b>Ciudad:</b></div>
-				<div class="col-8"><?php echo ($ciudad); ?></div>
-			</div>
-
-			<div class="row">
-				<div class="col-4"><b>Código Postal:</b></div>
-				<div class="col-8"><?php echo ($cp); ?></div>
-			</div>
-
-
-
-
-
-			<a href="reporte_editar_catalogo_marian.php" class="col-4 m-1 mt-5 btn btn-info">Regresar al reporte paqueteria </a>
-
-
-			<a href="alta_tabla_marian.php" class="col-4 mt-5 m-1 btn btn-warning" >Registrar otra paqueteria</a>
-
-
-		</div>
-
-
-
-	</div>
-	<?php
-
-	$conn = null;
-	?>
 </body>
 
 </html>
+
+<?php
+$conn = null;
+?>

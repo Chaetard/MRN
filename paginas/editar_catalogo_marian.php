@@ -8,7 +8,7 @@ $result = $conn->query($sql);
 $rows = $result->fetchAll();
 if (empty($rows)) {
     $result = "No se encontraron empresas con esa información !!";
-    header("Location: reporte_editar_catalog_marian.php");
+    header("Location: reporte_editar_catalogo_marian.php");
     exit;
 }
 ?>

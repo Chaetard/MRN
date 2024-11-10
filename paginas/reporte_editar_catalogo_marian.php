@@ -1,15 +1,9 @@
 <?php
-// Muestra todos los errores
-
 
 require_once "conexion.php";
 $sql = 'SELECT * from paqueteria ;';
 $result = $conn->query($sql);
 $rows = $result->fetchAll();
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -27,11 +21,12 @@ $rows = $result->fetchAll();
         <div class="row bg-white m-2">
             <div class="col-md-4">Licenciatura en Tecnologías de la Información</div>
             <div class="col-md-4">Programación web</div>
-            <div class="col-md-4">Reporte de registros de una tabla para ser ACTUALIZADOS en línea (PHP con PDP y MySQL)</div>
+            <div class="col-md-4">Reporte de registros de una tabla para ser ACTUALIZADOS en línea (PHP con PDP y MySQL)
+            </div>
         </div>
 
         <div class="row">
-        <a href="alta_tabla_marian.php" class="btn btn-info w-100 m-2">Agregar otra Factura</a>
+            <a href="alta_tabla_mariam.php" class="btn btn-info w-100 m-2">Agregar otra Empresa</a>
             <table class="bg-white m-2">
                 <thead>
                     <tr>
@@ -56,12 +51,11 @@ $rows = $result->fetchAll();
                         <tr>
                             <td><?php echo $row['id_empresa']; ?></td>
                             <td><?php echo htmlspecialchars($row['nombre']); ?></td>
-
-                               
                             <td><?php echo $row['telefono']; ?></td>
                             <td>
-                                <a href="http://<?php echo $row['sitio_web']; ?>" target="_blank" class="btn btn-secondary w-100">
-                                Enlace</a>
+                                <a href="http://<?php echo $row['sitio_web']; ?>" target="_blank"
+                                    class="btn btn-secondary w-100">
+                                    Enlace</a>
                             </td>
                             <td><?php echo $row['oficinas_c']; ?></td>
                             <td><?php echo $row['email']; ?></td>
@@ -69,12 +63,14 @@ $rows = $result->fetchAll();
                             <td><?php echo $row['ciudad']; ?></td>
                             <td><?php echo $row['cp']; ?></td>
 
-                            <td><a href="#" class="btn btn-danger">
+                            <td><a href="eliminar_catalogo_marian.php?id=<?php echo $row['id_empresa']; ?>"
+                                    class="btn btn-danger">
                                     eliminar
                                 </a>
                             </td>
 
-                            <td><a href="editar_catalogo_marian.php?id=<?php echo $row['id_empresa']; ?>" class="btn btn-success">
+                            <td><a href="editar_catalogo_marian.php?id=<?php echo $row['id_empresa']; ?>"
+                                    class="btn btn-success">
                                     editar
                                 </a>
                             </td>
@@ -85,11 +81,15 @@ $rows = $result->fetchAll();
 
                 </tbody>
             </table>
-             <div class="row">
-                <div class="col-12 text-center bg-dark m-2" style="color:white;">
+
+            <div class="row d-flex center">
+                <div class="col-8 bg-dark" style="color:white;">
                     <h1>Marian Ochoa Estrella</h1>
                 </div>
             </div>
+
+
+
         </div>
 
     </div>

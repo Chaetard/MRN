@@ -1,4 +1,4 @@
-function ValidaFormulario1() {
+function ValidarDatos() {
     var id_empresa = document.getElementById("txt_id_empresa").value;
     var nombre_empresa = document.getElementById("txt_nombre_empresa").value;
     var numero = document.getElementById("txt_telefono_empresa").value;

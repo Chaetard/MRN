@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a href="alta_tabla_marian.php">REGISTRAR OTRA EMPRESA</a>
                 <br />
                 <br />
-                    <a href="ver_registros.php">Ver todos los registros</a>
+                    <a href="reporte_editar_relacionada_marian.php">Ver todos los registros</a>
             </div>
         </fieldset>
         <h3>Marian Ochoa Estrella / Programación Web</h3>

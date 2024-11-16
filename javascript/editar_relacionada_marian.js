@@ -37,7 +37,7 @@ function ValidaFormulario1() {
         document.getElementById("ciudad_destino").style.background = 'lightcoral';
         document.getElementById("ciudad_destino").focus();
         return false;
-    } else if (estado == null || estado == "" || /^\s+$/.test(estado)) {
+    } else if (estado == null || estado == "" || estado == 0 || /^\s+$/.test(estado)) {
         alert("Debes seleccionar un estado");
         document.getElementById("estado").style.background = 'lightcoral';
         document.getElementById("estado").focus();

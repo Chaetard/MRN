@@ -1,4 +1,15 @@
 <?php
+
+
+session_start();
+if ($_SESSION["validado"] != "true") {
+
+
+    header("Location: ../index.php");
+    exit;
+
+}
+
 require_once "conexion.php";
 
 // Si se envía el formulario
@@ -42,6 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Formulario Tabla Empresas</title>
     <link href="../css/estilo_formulario.css" rel="stylesheet" type="text/css" media="screen"> 
     <script src="../javascript/validacion.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
     <div id="message" class="message" style="display: none;"></div> <!-- Contenedor para mensajes -->
@@ -79,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a href="alta_tabla_marian.php">REGISTRAR OTRA EMPRESA</a>
                 <br />
                 <br />
-                    <a href="reporte_editar_relacionada_marian.php">Ver todos los registros</a>
+                    <a href="reporte_editar_catalogo_marian.php">Ver todos los registros</a>
             </div>
         </fieldset>
         <h3>Marian Ochoa Estrella / Programación Web</h3>

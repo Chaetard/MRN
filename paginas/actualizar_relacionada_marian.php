@@ -1,20 +1,32 @@
 <?php
+
+
+session_start();
+if ($_SESSION["validado"] != "true") {
+
+
+    header("Location: ../index.php");
+    exit;
+
+}
+
+
 require_once "conexion.php";
 
-$envio_id = $_POST["txt_envio_id_oculto"];
+$envio_id = $_POST["envio_id_oculto"];
 $envio_id = (int)$envio_id;  
 $id_empresa = $_POST["combo_departamento"];
 $id_empresa = (int)$id_empresa;
 $f_envio = $_POST["f_envio"];
-$destino = strtoupper(trim($_POST["txt_sitio_web"]));
-$ciudad_destino = strtoupper(trim($_POST["txt_ciudad_destino"]));
-$estado = strtoupper(trim($_POST["txt_estado"]));
-$costo = $_POST["txt_costo"];
+$destino = strtoupper(trim($_POST["destino"]));
+$ciudad_destino = strtoupper(trim($_POST["ciudad_destino"]));
+$estado = strtoupper(trim($_POST["estado"]));
+$costo = $_POST["costo"];
 $costo = (float)$costo;  
-$n_remitente = strtoupper(trim($_POST["txt_remitente"]));
-$n_destinatario = strtoupper(trim($_POST["txt_destinatario"]));
-$peso = $_POST["txt_peso"];
-$peso = (float)$peso;  
+$n_remitente = strtoupper(trim($_POST["n_remitente"]));
+$n_destinatario = strtoupper(trim($_POST["n_destinatario"]));
+$peso = $_POST["peso"];
+$peso = (float)$peso;
 
 $sqlUPDATE = "UPDATE envios SET 
                 id_empresa = '$id_empresa', 

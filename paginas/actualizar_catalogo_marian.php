@@ -1,5 +1,17 @@
 <?php
+
+session_start();
+if ($_SESSION["validado"] != "true") {
+
+
+    header("Location: ../index.php");
+    exit;
+
+}
+
+
 require_once "conexion.php";
+
 $id_empresa = $_POST["txt_id_empresa_oculto"];
 $nombre = strtoupper(trim($_POST["txt_nombre_empresa_oculto"]));
 $telefono = (int) $_POST["txt_telefono_empresa"];
@@ -21,6 +33,7 @@ $mensaje = "Factura Actualizada Correctamente ";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualización de Empresa</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 

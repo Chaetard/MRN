@@ -1,5 +1,17 @@
 <?php
+
+session_start();
+if ($_SESSION["validado"] != "true") {
+
+
+    header("Location: ../index.php");
+    exit;
+
+}
+
+
 require_once "conexion.php";
+
 $result = "";
 $result2 = "";
 $sqlPaq = 'SELECT id_empresa, nombre FROM paqueteria';
@@ -36,7 +48,9 @@ if (empty($rows)) {
 
 <head>
     <meta charset="utf-8">
-    <title>Regitro de Facturas desde PHP hacia MySQL</title>
+    <title>Editar Relacionada</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <script src="../javascript/editar_relacionada_marian.js"></script>
 </head>
@@ -60,8 +74,7 @@ if (empty($rows)) {
         <form action="actualizar_relacionada_marian.php" method="post" id="formulario1"
             onsubmit="return ValidaFormulario1();">
             <?php foreach ($rows as $row) { ?>
-                <input type="hidden" name="txt_envio_id_oculto" id="txt_envio_id_oculto"
-                    value="<?php echo $row['envio_id']; ?>" />
+                <input type="hidden" name="envio_id_oculto" id="envio_id_oculto" value="<?php echo $row['envio_id']; ?>" />
 
                 <div class="form-group row mb-3">
                     <label class="col-sm-4 col-form-label">Id del Envío:</label>
@@ -110,7 +123,7 @@ if (empty($rows)) {
                 </div>
 
                 <div class="form-group row mb-3">
-                    <label class="col-sm-4 col-form-label mt-3">Oficinas Centrales:</label>
+                    <label class="col-sm-4 col-form-label mt-3">Estado:</label>
                     <div class="col-sm-8">
                         <select id="estado" name="estado" class="form-select">
                             <option value="0">--Seleccione un Estado--</option>

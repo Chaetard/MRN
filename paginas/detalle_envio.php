@@ -1,10 +1,9 @@
 <?php
 session_start();
-if ($_SESSION["validado"] != "true") {
+if (!isset($_SESSION["validado"]) || $_SESSION["validado"] != "true") {
     header("Location: ../index.php");
     exit;
 }
-
 require_once "conexion.php";
 
 // Obtenemos el ID del envío de la URL

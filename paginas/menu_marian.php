@@ -1,9 +1,13 @@
 <?php
-session_start();
-if ($_SESSION["validado"] != "true") {
-    header("Location: ../index.php");
-    exit;
-}
+
+
+// session_start();
+// if (!isset($_SESSION["validado"]) || $_SESSION["validado"] != "true") {
+//     header("Location: ./login.php");
+//     exit;
+// }
+
+
 require_once "conexion.php";
 ?>
 

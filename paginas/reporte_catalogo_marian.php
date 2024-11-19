@@ -1,10 +1,9 @@
 <?php
 session_start();
-if ($_SESSION["validado"] != "true") {
-    header("Location: ../index.php");
+if (!isset($_SESSION["validado"]) || $_SESSION["validado"] != "true") {
+    header("Location: ./login.php");
     exit;
 }
-
 require_once "conexion.php";
 
 $sql = 'SELECT id_empresa, nombre, sitio_web, oficinas_c FROM paqueteria';

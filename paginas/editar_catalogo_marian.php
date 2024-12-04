@@ -10,7 +10,7 @@ if (!isset($_SESSION["validado"]) || $_SESSION["validado"] != "true") {
 require_once "conexion.php";
 
 $id_empresa = $_GET["id"];
-$id_empresa = trim($id_empresa);
+$id_empresa = trim(string: $id_empresa);
 $sql = "SELECT * FROM paqueteria WHERE id_empresa='$id_empresa'";
 $result = $conn->query($sql);
 $rows = $result->fetchAll();

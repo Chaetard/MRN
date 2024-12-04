@@ -1,54 +1,84 @@
 <?php
-
-
-// session_start();
-// if (!isset($_SESSION["validado"]) || $_SESSION["validado"] != "true") {
-//     header("Location: ./login.php");
-//     exit;
-// }
-
+session_start();
+if (!isset($_SESSION["validado"]) || $_SESSION["validado"] != "true") {
+    header("Location: ./login.php");
+    exit;
+}
 
 require_once "conexion.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Principal</title>
-    
+    <title>Gestión de Envíos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+
     <style>
         body {
-            background-color: #212529; /* Fondo oscuro */
-            color: #f8f9fa; /* Texto claro */
-        }
-
-        .container {
-            margin-top: 50px;
-        }
-
-        h1, h2 {
-            color: #ffc107; /* Color amarillo de Bootstrap */
-        }
-
-        .btn {
-            font-size: 1rem;
-            font-weight: bold;
-        }
-
-        ul {
-            padding: 0;
-        }
-
-        ul li {
-            margin-bottom: 10px;
+            background-color: #212529;
+            color: #f8f9fa;
         }
 
         .navbar {
+            background-color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        .navbar .nav-link {
+            color: #ffc107;
+            font-weight: bold;
+        }
+
+        .navbar .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .sidebar {
+            background-color: #343a40;
+            width: 250px;
+            position: fixed;
+            top: 70px; 
+            bottom: 0;
+            left: 0;
+            padding-top: 20px;
+            border-right: 3px solid #ffc107;
+        }
+
+        .sidebar h2 {
+            color: #ffc107;
+            text-align: center;
             margin-bottom: 30px;
+        }
+
+        .list-unstyled li {
+            margin-bottom: 10px;
+        }
+
+        .dropdown-menu {
+            display: none;
+        }
+
+        .content-wrapper {
+            margin-left: 270px; 
+            padding: 20px;
+        }
+
+        .card {
+            margin-top: 20px;
+        }
+
+        .card-header {
+            background-color: #343a40;
+            color: #ffc107;
+        }
+
+        .card-body {
+            background-color: #495057;
         }
 
         .btn-danger {
@@ -61,32 +91,95 @@ require_once "conexion.php";
 
 <body>
 
-   
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
     
-        <span class="navbar-brand mb-0 h1">MRN</span>
-        
-     
-        <button class="btn btn-danger mb-0" onclick="location.href='../index.php'">Cerrar Sesion</button>
-    </div>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./menu_marian.php">SIVICOM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./reporte_relacionada_marian.php">Reporte de Envíos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./reporte_catalogo_marian.php">Reporte de Paquetería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./ajax_catalogo_marian.php">Reporte Ajax Catalogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./ajax_relacionada_marian.php">Reporte Ajax Relacionada</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./reporte_usuarios.php">Usuarios</a>
+                    </li>
+                </ul>
+            </div>
+            <button class="btn btn-danger" onclick="location.href='../index.php'">Cerrar Sesión</button>
+        </div>
+    </nav>
 
+    <!-- Menú lateral -->
+    <nav class="sidebar">
+        <h2>Menú</h2>
+        <ul class="list-unstyled">
+            <li class="menuDesplegableLi">
+                <button class="btn btn-primary w-100 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Envíos
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./reporte_relacionada_marian.php">Reporte</a></li>
+                    <li><a class="dropdown-item" href="./alta_relacionada_marian.php">Alta</a></li>
+                    <li><a class="dropdown-item" href="./reporte_editar_relacionada_marian.php">Actualizar/Eliminar</a></li>
+                </ul>
+            </li>
+            <li class="menuDesplegableLi">
+                <button class="btn btn-primary w-100 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Paqueterías
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./reporte_catalogo_marian.php">Reporte</a></li>
+                    <li><a class="dropdown-item" href="./alta_tabla_marian.php">Alta</a></li>
+                    <li><a class="dropdown-item" href="./reporte_editar_catalogo_marian.php">Actualizar/Eliminar</a></li>
+                </ul>
+            </li>
+            <li class="menuDesplegableLi">
+                <button class="btn btn-primary w-100 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Usuarios
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./alta_usuarios.php">Altas</a></li>
+                    <li><a class="dropdown-item" href="./reporte_para_eliminar_usuarios.php">Bajas</a></li>
+                    <li><a class="dropdown-item" href="./reporte_para_editar_usuarios.php">Actualizaciones</a></li>
+                    <li><a class="dropdown-item" href="./reporte_usuarios.php">Reporte</a></li>
+                </ul>
+            </li>
+            <li class="menuDesplegableLi">
+                <button class="btn btn-primary w-100 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Reportes Ajax
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./ajax_catalogo_marian.php">Catálogo</a></li>
+                    <li><a class="dropdown-item" href="./ajax_relacionada_marian.php">Relacionada</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
-    <div class="container">
+    <!-- Contenido principal -->
+    <div class="content-wrapper">
         <div class="row text-center">
-            <h1>Gestion de Envios</h1>
-            <h2>Menu Principal</h2>
-            <p>Elige las acciones disponibles</p>
+            <h1 class="text-light">Gestiona los Reportes y Acciones</h1>
         </div>
 
-        <!-- Opciones de Envíos y Paqueterías -->
         <div class="row mt-5">
-            <!-- Sección de Envíos -->
-            <div class="col-md-6">
+            <!-- Card de Envíos -->
+            <div class="col-md-4">
                 <div class="card bg-secondary text-light">
                     <div class="card-header text-center">
-                        <h3>Envios</h3>
+                        <h3>Envíos</h3>
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled">
@@ -98,11 +191,11 @@ require_once "conexion.php";
                 </div>
             </div>
 
-            <!-- Sección de Paqueterías -->
-            <div class="col-md-6">
+            <!-- Card de Paqueterías -->
+            <div class="col-md-4">
                 <div class="card bg-secondary text-light">
                     <div class="card-header text-center">
-                        <h3>Paqueterias</h3>
+                        <h3>Paqueterías</h3>
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled">
@@ -113,13 +206,51 @@ require_once "conexion.php";
                     </div>
                 </div>
             </div>
+
+            <!-- Card de Reportes Ajax -->
+            <div class="col-md-4">
+                <div class="card bg-secondary text-light">
+                    <div class="card-header text-center">
+                        <h3>Usuarios</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li><a class="btn btn-info w-100 mb-3" href="./reporte_para_editar_usuarios.php">Editar</a></li>
+                            <li><a class="btn btn-info w-100 mb-3" href="./reporte_para_eliminar_usuarios.php">Eliminar</a></li>
+                            <li><a class="btn btn-info w-100 mb-3" href="./alta_usuarios.php">Alta</a></li>
+                            <li><a class="btn btn-info w-100 mb-3" href="./reporte_usuarios.php">Reporte</a></li>
+                        </ul>
+                    </div>
+                   
+            </div>
         </div>
     </div>
 
-    
-    
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-wEmeIV1mKuiNp0D+E3j7khQ6U68m6z9A5M2jE9Wf/NqjHMR2D8ZztVVnTQujl+Xr" crossorigin="anonymous"></script>
+
+    <script>
+        // Control de los dropdowns
+        document.querySelectorAll('.dropdown-toggle').forEach(function (dropdown) {
+            dropdown.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.querySelectorAll('.dropdown-menu').forEach(function (menu) {
+                    menu.style.display = 'none';
+                });
+                const menu = dropdown.nextElementSibling;
+                menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Cerrar dropdowns al hacer clic fuera
+        window.addEventListener('click', function (e) {
+            if (!e.target.matches('.dropdown-toggle')) {
+                document.querySelectorAll('.dropdown-menu').forEach(function (menu) {
+                    menu.style.display = 'none';
+                });
+            }
+        });
+    </script>
+
 </body>
 
 </html>

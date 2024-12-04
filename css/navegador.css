@@ -1,0 +1,16 @@
+body {
+    background-color: #212529; /* Fondo oscuro */
+    color: #f8f9fa; /* Texto claro */
+}
+
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    padding: 20px;
+}
+
+.container-fluid {
+    margin-right: 320px; /* Ajusta el margen según el ancho del navbar */
+}

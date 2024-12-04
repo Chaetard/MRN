@@ -1,8 +1,14 @@
 <?php
-$servername = "fdb1030.atspace.me";
-$username = "4244598_santos";
-$password = "hola123hola";
-$basededatos = "4244598_santos";
+  $servername = "fdb1030.atspace.me";
+  $username = "4244598_santos";
+  $password = "hola123hola";
+  $basededatos = "4244598_santos";
+
+
+ //$servername = "localhost";
+ //$username = "root";
+ //$password = "";
+ //$basededatos = "prograweb";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$basededatos", $username, $password);
